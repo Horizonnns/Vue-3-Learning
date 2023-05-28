@@ -1,30 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+		<style>
+			html,
+			body {
+				height: 100%;
+			}
+
+			body {
+				display: grid;
+				place-items: center;
+			}
+
+			.text-red {
+				color: red;
+			}
+
+			.text-green {
+				color: green;
+			}
+		</style>
 		<meta charset="UTF-8" />
 		<script src="https://unpkg.com/vue@3"></script>
-		<title>Document</title>
+		<title>Episode 2: Attribute Binding and Basic Events</title>
 	</head>
 
 	<body>
 		<div id="app">
-			<input v-model="greeting" type="text" />
-
-			<p>{{greeting}} ({{greeting.length}})</p>
+			<button :class="active ? 'text-red' : 'text-green'" @click="toggle">Click Me</button>
 		</div>
 
 		<script>
 			Vue.createApp({
 				data() {
 					return {
-						greeting: 'Fuck off!',
+						active: false,
 					};
 				},
 
-				mounted() {
-					setTimeout(() => {
-						this.greeting = 'Changed';
-					}, 3000);
+				methods: {
+					toggle() {
+						this.active = !this.active;
+					},
 				},
 			}).mount('#app');
 		</script>
