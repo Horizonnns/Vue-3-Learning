@@ -20,6 +20,12 @@
 						greeting: 'Fuck off!',
 					};
 				},
+
+				mounted() {
+					setTimeout(() => {
+						this.greeting = 'Changed';
+					}, 3000);
+				},
 			}).mount('#app');
 		</script>
 	</body>
