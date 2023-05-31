@@ -1,10 +1,10 @@
 export default {
 	template: `
 				<li>
-				<label>
+				<label class="flex justify-between p-2">
 						{{assignment.name}}
 
-						<input v-model="assignment.complete" type="checkbox" />
+						<input v-model="assignment.complete" type="checkbox" class="ml-3" />
 				</label>
 			</li>
 	`,
